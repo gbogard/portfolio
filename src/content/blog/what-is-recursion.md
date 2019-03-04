@@ -68,17 +68,17 @@ Note that it can be made even more concise by using a ternary operator :
 const factorial = n => n <= 1 ? 1 : factorial(n - 1) * n
 ```
 
-What you notice immediately is that the 'factorial' function we defined is calling itself. If you try to run 'factorial(5)',
-you get the expected result of 120. So what is happening exactly ? As long as our condition 'n <= 1' is false,
-each call to the 'factorial' function is expanded to another call to itself. When we finally reach our base case, that is when
-our condition is true, the 'factorial' function is not called anymore.
+What you notice immediately is that the `factorial` function we defined is calling itself. If you try to run `factorial(5)`,
+you get the expected result of 120. So what is happening exactly ? As long as our condition `n <= 1` is false,
+each call to the `factorial` function is expanded to another call to itself. When we finally reach our base case, that is when
+our condition is true, the `factorial` function is not called anymore.
 
 These nested calls can be represented by a tree, as illustrated by the schema below :
 
 ![Each call to the factorial function gets expanded into a new call to itself](../images/factorial-tree.png)
 
-You can see from the schema that computing 'factorial(5)' requires 4 nested calls to 'factorial'. The higher the
-factorial you want to compute, the deeper the tree gets. For any positive integer n, computing 'factorial(n)' requires 'n - 1'
+You can see from the schema that computing `factorial(5)` requires 4 nested calls to `factorial`. The higher the
+factorial you want to compute, the taller the tree gets. For any positive integer n, computing `factorial(n)` requires `n - 1`
 nested calls.
 
 #### What happens when we forget the base case ?
@@ -97,7 +97,7 @@ at factorial (vumoheguzo.js:1:24)
 ...
 ```
 
-Since we removed our condition, our call the 'factorial' function gets expanded into an infinite number of nested calls, just like a 'while' loop that would
+Since we removed our condition, our call the `factorial` function gets expanded into an infinite number of nested calls, just like a `while` loop that would
 never exit. But the memory you're allowed to allocate in your program is limited. At some point, your Javascript engine (or JVM, or whatever environment you're in)
 will prevent you from doing more nested calls, and notify you with this exception, indicating that you've reach the maximum call depth allowed.
 
@@ -140,7 +140,7 @@ const removeNullValues = object =>
 }, {})
 ```
 
-By using a combination of 'reduce', recursion, and a spread operator, we are able to remove null values from any object, in just about 15 lines of code, in a purely
+By using a combination of `reduce`, recursion, and a spread operator, we are able to remove null values from any object, in just about 15 lines of code, in a purely
 functional matter (no mutability or side effects involved).
 
 ```javascript

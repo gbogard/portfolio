@@ -7,5 +7,5 @@ const scroll = () => {
 }
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  setTimeout(scroll, 50)
+  setTimeout(scroll, 10)
 }
