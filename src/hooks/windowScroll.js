@@ -13,9 +13,8 @@ export const useWindowScroll = (delay = 15) => {
     if (x !== scroll.x || y !== scroll.y) setScroll({ x, y })
   });
   useEffect(() => {
-    window.dispatchEvent(new Event('scroll'))
     window.addEventListener('scroll', listener, true);
     return  () => window.removeEventListener('scroll', listener, true);
-  });
+  }, []);
   return scroll;
 }
