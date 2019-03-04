@@ -2,6 +2,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-transformer-remark',
+    'gatsby-remark-copy-linked-files',
     'gatsby-transformer-yaml',
     'gatsby-plugin-catch-links',
     {
@@ -25,7 +26,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 920,
+              linkImagesToOriginal: false,
             },
           },
         ],

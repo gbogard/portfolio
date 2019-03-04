@@ -30,7 +30,7 @@ integer n, you need all whole numbers from n down to 1.
 
 How would you calculate the factorial of let's say 5 ? Just multiply 1, 2, 3, 4 and 5 together.
 
-![Calculating the factorial of 5](/img/factorial5.png)
+![Calculating the factorial of 5](../images/factorial5.png)
 
 If you want to know the factorial of 6, just multiply that by 6, and for the factorial of 7, you guessed it,
 multiply '6!' by 7. If we put those results in a table, we begin to see a pattern emerging.
@@ -75,7 +75,7 @@ our condition is true, the 'factorial' function is not called anymore.
 
 These nested calls can be represented by a tree, as illustrated by the schema below :
 
-![Each call to the factorial function gets expanded into a new call to itself](/img/factorial-tree.png)
+![Each call to the factorial function gets expanded into a new call to itself](../images/factorial-tree.png)
 
 You can see from the schema that computing 'factorial(5)' requires 4 nested calls to 'factorial'. The higher the
 factorial you want to compute, the deeper the tree gets. For any positive integer n, computing 'factorial(n)' requires 'n - 1'
