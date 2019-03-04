@@ -1,3 +1,4 @@
+import 'prismjs/themes/prism-twilight.css';
 import './src/assets/icons/style.css';
 
 const scroll = () => {
