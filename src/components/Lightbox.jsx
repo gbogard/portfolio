@@ -1,6 +1,6 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
+import { Portal } from 'react-portal';
 
 const Overlay = styled.div`
   position: fixed;
@@ -21,9 +21,11 @@ const Image = styled.img`
   border-radius: .25rem;
 `;
 
-export const Lightbox = ({ src, onClose }) => createPortal(
-  <Overlay onClick={onClose}>
-    <Image src={src} />
-  </Overlay>,
-  window.document.body,
+
+export const Lightbox = ({ src, onClose }) => (
+  <Portal>
+    <Overlay onClick={onClose}>
+      <Image src={src} />
+    </Overlay>
+  </Portal>
 );

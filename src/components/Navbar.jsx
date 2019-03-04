@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { createPortal } from 'react-dom';
+import { Portal } from 'react-portal';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { Container } from './Container';
@@ -58,12 +58,11 @@ export const Navbar = ({ children }) => {
   return (
     <Fragment>
       {content}
-      {createPortal(
+      <Portal>
         <FixedWrapper active={y >= scrollOffset}>
           {content}
-        </FixedWrapper>,
-        window.document.body
-      )}
+        </FixedWrapper>
+      </Portal>
     </Fragment>
   )
 }; 

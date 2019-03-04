@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { throttle } from 'throttle-debounce';
 
-const getWindowScroll = () => window ? {
+const getWindowScroll = () => typeof window !== 'undefined' ? {
   x: window.scrollX,
   y: window.scrollY,
 } : { x: 0, y: 0 };

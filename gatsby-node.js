@@ -38,10 +38,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
       data.projects.edges.forEach(({ node: { fields: { slug } } }, index, arr) => {
         const prev = arr[index - 1];
         const next = arr[index + 1];
-        console.log(prev, next)
         createPage({
           path: slug,
-          component: resolve('./src/pages/project.jsx'),
+          component: resolve('./src/templates/project.jsx'),
           context: { slug, next: next ? next.node : null, prev: prev ? prev.node : null }
         })
       })
@@ -51,7 +50,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
         const next = arr[index + 1];
         createPage({
           path: slug,
-          component: resolve('./src/pages/post.jsx'),
+          component: resolve('./src/templates/post.jsx'),
           context: { slug, next: next ? next.node : null, prev: prev ? prev.node : null }
         })
       })
