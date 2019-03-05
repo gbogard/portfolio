@@ -26,7 +26,7 @@ The factorial function is good example to understand recursion. According to Wik
 > The factorial of a positive integer n, denoted by n!, is the product of all positive integers less than or equal to n.
 
 Or to put it in a more _imperative_ manner : to calculate the factorial of the positive
-integer n, you need all whole numbers from n down to 1.
+integer n, you need to multiply all whole numbers from n down to 1.
 
 How would you calculate the factorial of let's say 5 ? Just multiply 1, 2, 3, 4 and 5 together.
 
@@ -38,8 +38,8 @@ How would you calculate the factorial of let's say 5 ? Just multiply 1, 2, 3, 4 
 |    | = | 24 x 5            |
 |    | = | 120               |
 
-If you want to know the factorial of 6, just multiply that by 6, and for the factorial of 7, you guessed it,
-multiply '6!' by 7. If we put those results in a table, we begin to see a pattern emerging.
+If you want to know the factorial of `6`, just multiply that by 6, and for the factorial of `7`, you guessed it,
+multiply `6!` by `7`. If we put those results in a table, we begin to see a pattern emerging.
 
 | n | !n                |         |       |
 |:-:|:-----------------:|:-------:|-------|
@@ -103,23 +103,26 @@ at factorial (vumoheguzo.js:1:24)
 ...
 ```
 
-Since we removed our condition, our call the `factorial` function gets expanded into an infinite number of nested calls, just like a `while` loop that would
+Since we removed our condition, our call to the `factorial` function gets expanded into an infinite number of nested calls, just like a `while` loop that would
 never exit. But the memory you're allowed to allocate in your program is limited. At some point, your Javascript engine (or JVM, or whatever environment you're in)
 will prevent you from doing more nested calls, and notify you with this exception, indicating that you've reach the maximum call depth allowed.
 
-Most of the time, this indicates a recursive function that never exists because of a missing or incorrect base case. However, in some rare cases, with can be that
-your function is correct, but the computation you asked for is so complex that it actually required more calls than your environment can handle. Javascript is probably
-not the best choice for those complex computations. There are ways to prevent stack overflow errors in other languages, but that will be discussed in the next post.
+Most of the time, this indicates a recursive function that never exits because of a missing or incorrect base case. However, in some rare cases, 
+it can be that your function is correct, but the computation you asked for is so complex that it actually requires more calls than your environment can handle. 
+Javascript is probably not the best choice for those complex computations. There are ways to prevent stack
+overflow errors in other languages, but that will be discussed in the next post.
 
 ### OK, factorials are cool, but can you teach me something actually useful ?
 
-Factorials are a great way to understand the basic principles of recursion, but there's little chance that you will actually need them in your projects, unless they are
-related to mathematics. But there are many use cases for recursion, no matter what you're building. One very common use case is the transformation of arbitrarily nested data
-structures.
+Factorials are a great way to understand the basic principles of recursion, but there's little chance that you will actually need them in your projects,
+unless they are related to mathematics. But there are many use cases for recursion, no matter what you're building. One very common use case is
+the transformation of arbitrarily nested data structures.
 
-Let's suppose you want to send data over a network. Bandwidth is expensive and data transfers are slow, so you want to minimize the amount of data that is actually transferred.
-You already know that the objects you need to send might contain null values you don't care about, so you want to filter null values before sending the objects over the network.
-The problem is you don't know the exact shape of your objects in advance. They could contain any amount of nested objects. This is a perfect use case for recursion!
+Let's suppose you want to send data over a network. Bandwidth is expensive and data transfers are slow, so you want to minimize the amount 
+of data that is actually transferred. You already know that the objects you need to send might contain `null` values you don't care about, 
+so you want to filter those `null` values before sending the objects over the network.
+The problem is you don't know the exact shape of your objects in advance. They could contain any amount of nested objects. 
+This is a perfect use case for recursion!
 
 Let's write a JavaScript function that will do exactly what we need :
 
@@ -133,7 +136,7 @@ const removeNullValues = object =>
     return acc
   }
   // When the value is an object, we strip out null values
-  // recursilvey by making a nested call
+  // recursively by making a nested call
   if (isObject(value)) {
     const filteredValue = removeNullValues(value)
     // We also strip out empty objects from the result
