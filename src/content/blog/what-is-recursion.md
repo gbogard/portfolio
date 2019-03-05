@@ -30,7 +30,13 @@ integer n, you need all whole numbers from n down to 1.
 
 How would you calculate the factorial of let's say 5 ? Just multiply 1, 2, 3, 4 and 5 together.
 
-![Calculating the factorial of 5](../images/factorial5.png)
+|    |   |                   |
+|----|---|-------------------|
+| 5! | = | 1 x 2 x 3 x 4 x 5 |
+|    | = | 2 x 3 x 4 x 5     |
+|    | = | 6 x 4 x 5         |
+|    | = | 24 x 5            |
+|    | = | 120               |
 
 If you want to know the factorial of 6, just multiply that by 6, and for the factorial of 7, you guessed it,
 multiply '6!' by 7. If we put those results in a table, we begin to see a pattern emerging.
@@ -44,9 +50,9 @@ multiply '6!' by 7. If we put those results in a table, we begin to see a patter
 | 5 | 5 x 4 x 3 x 2 x 1 | = 5(4!) | = 120 |
 
 We can observe that each row in our table relies on the previous one, except for the first row, which is called
-the base case of the recursion. What it means is if we need to compute the factorial of any positive integer 'n',
-we start by computing '!(n -1)', itself requiring computing '!(n - 2)' and so on, until we reach our base case
-of '!1 = 1'.
+the base case of the recursion. What it means is if we need to compute the factorial of any positive integer `n`,
+we start by computing `!(n -1)`, itself requiring computing `!(n - 2)` and so on, until we reach our base case
+of `!1 = 1`.
 
 #### The code
 
@@ -103,7 +109,8 @@ will prevent you from doing more nested calls, and notify you with this exceptio
 
 Most of the time, this indicates a recursive function that never exists because of a missing or incorrect base case. However, in some rare cases, with can be that
 your function is correct, but the computation you asked for is so complex that it actually required more calls than your environment can handle. Javascript is probably
-not the best choice for those complex computations. There are ways to prevent stack overflow errors in other languages, but that will be discussed in the next post.```
+not the best choice for those complex computations. There are ways to prevent stack overflow errors in other languages, but that will be discussed in the next post.
+
 ### OK, factorials are cool, but can you teach me something actually useful ?
 
 Factorials are a great way to understand the basic principles of recursion, but there's little chance that you will actually need them in your projects, unless they are

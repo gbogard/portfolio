@@ -6,11 +6,11 @@ const getWindowScroll = () => typeof window !== 'undefined' ? {
   y: window.scrollY,
 } : { x: 0, y: 0 };
 
-export const useWindowScroll = (delay = 15) => {
+export const useWindowScroll = (delay = 10) => {
   const [scroll, setScroll] = useState(getWindowScroll());
   const listener = throttle(delay, () => {
     const { x, y } = getWindowScroll();
-    if (x !== scroll.x || y !== scroll.y) setScroll({ x, y })
+    setScroll({ x, y });
   });
   useEffect(() => {
     window.addEventListener('scroll', listener, true);

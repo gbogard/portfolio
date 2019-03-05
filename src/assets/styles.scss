@@ -1,0 +1,62 @@
+@import './icons/style.css';
+@import './prismjs';
+@import '~plumber-sass/plumber';
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn&subset=latin-ext');
+
+$baseFont: 'Lato', sans-serif;
+$quoteFont: 'Vollkorn', serif;
+
+@include plumber-set-defaults(
+  $grid-height: 12px,
+  $baseline: 0.113000,
+  $font-size: 1.6,
+  $line-height: 3,
+  $leading-top: 1,
+  $leading-bottom: 3
+);
+
+html, body {
+  font-size: 12px;
+  padding: 0 !important;
+  margin: 0;
+  box-sizing: border-box;
+  @include plumber();
+  font-family: $baseFont;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote {
+  position: relative;
+  font-family: $quoteFont;
+  margin: 5rem 2rem;
+  padding-left: 2rem;
+  overflow: visible;
+  &:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4rem;
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+  }
+  &:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4rem;
+    position: absolute;
+    right: 1rem;
+    bottom: -2rem;
+  }
+}
+
+table {
+  min-width: 60%;
+  margin: 2rem auto;
+}
+

@@ -23,7 +23,6 @@ const Container = styled(RawContainer)`
   margin-top: 3rem;
 `;
 
-
 export const Header = forwardRef(({ children, scrollPercentage }, ref) => (
   <Wrapper ref={ref} scrollPercentage={scrollPercentage}>
     <Navbar />

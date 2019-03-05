@@ -29,6 +29,11 @@ const Container = styled.div`
   }
 `;
 
+const Greeting = styled.h1`
+  line-height: 2.5rem;
+`
+
+
 export default ({
   data: {
     intro: {
@@ -74,10 +79,10 @@ export default ({
     <Container>
       <div>
         <Content>
-          <h1>
+          <Greeting>
             Hi there!<br />
             My name is Guillaume
-          </h1>
+          </Greeting>
           <Html>{introduction}</Html>
         </Content>
         <ButtonLink>

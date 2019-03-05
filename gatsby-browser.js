@@ -1,5 +1,4 @@
-import 'prismjs/themes/prism-twilight.css';
-import './src/assets/icons/style.css';
+import './src/assets/styles.scss';
 
 const scroll = () => {
   window.scroll(0, 0);
@@ -7,5 +6,5 @@ const scroll = () => {
 }
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  setTimeout(scroll, 10)
+  setTimeout(scroll, 20)
 }
