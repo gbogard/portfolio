@@ -2,6 +2,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import { Link } from './Link';
+import { Picture } from './Picture';
 
 const mapChildren = child => {
   if (!React.isValidElement(child)) return child;
@@ -9,6 +10,10 @@ const mapChildren = child => {
 
   if(child.type === 'a') {
     return <Link {...child.props} />
+  }
+
+  if (child.type === 'img') {
+    return <Picture {...child.props} />
   }
   
   return React.cloneElement(child, {}, children);
