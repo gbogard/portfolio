@@ -18,10 +18,11 @@ const ContentWrapper = styled(Container)`
   transform: translateY(-${props => top(props.scrollPercentage)}px);
 
   @media(min-width: ${theme.breakPoints.desktop}) {
-    padding-top: 2rem;
+    padding-top: 2rem 0 0 0;
     box-sizing: border-box;
     border-left: solid 2rem white;
     border-right: solid 2rem white;
+    box-sizing: content-box;
   }
 `;
 

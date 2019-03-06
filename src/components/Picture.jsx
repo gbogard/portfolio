@@ -23,7 +23,7 @@ export const Picture = props => {
   
   return (
     <Fragment>
-      <Image {...props} />
+      <Image onClick={toggleLightbox} {...props} />
       { isOpen ? <Lightbox src={props.src} onClose={toggleLightbox}/> : null }
     </Fragment>
   );
