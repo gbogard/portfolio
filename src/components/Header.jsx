@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import theme from '../config/theme';
-import { Container as RawContainer } from './Container';
+import { Container } from './Container';
 import { PersonalPicture } from './PersonalPicture';
 import { Navbar } from './Navbar';
 
@@ -10,17 +10,22 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   background: ${theme.primaryBlue};
-  padding: 3rem 0 8rem 0;
+
   color: white;
   opacity: ${props => (100 - props.scrollPercentage)/100};
   h1 {
     color: white;
     font-size: 2.5rem;
   }
-`;
+  text-align: center;
+  padding: 1rem 0 4rem 0;
+  @media(min-width: ${theme.breakPoints.tablet}) {
+    text-align: left;
+  }
 
-const Container = styled(RawContainer)`
-  margin-top: 3rem;
+  @media(min-width: ${theme.breakPoints.desktop}) {
+    padding: 3rem 0 8rem 0;
+  }
 `;
 
 export const Header = forwardRef(({ children, scrollPercentage }, ref) => (

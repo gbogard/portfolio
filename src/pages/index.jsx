@@ -29,10 +29,12 @@ const Container = styled.div`
   }
 `;
 
-const Greeting = styled.h1`
-  line-height: 2.5rem;
-`
-
+const Intro = styled.div`
+  display: none;
+  @media(min-width: ${theme.breakPoints.tablet}) {
+    display: block;
+  }
+`;
 
 export default ({
   data: {
@@ -60,13 +62,13 @@ export default ({
 
   const filteredProjects =
     projects.edges
-      .map(p => p.node)
-      .filter(project => {
-        if (!activeTools.length) {
-          return true;
-        }
-        return (project.frontmatter.tools || []).some(tool => activeTools.includes(tool));
-      });
+    .map(p => p.node)
+    .filter(project => {
+      if (!activeTools.length) {
+        return true;
+      }
+      return (project.frontmatter.tools || []).some(tool => activeTools.includes(tool));
+    });
 
   const tools = rawTools.edges.map(t => t.node);
   const toolsList = tools.map(({ id, icon, name }) => (
@@ -79,11 +81,13 @@ export default ({
     <Container>
       <div>
         <Content>
-          <Greeting>
+          <h1>
             Hi there!<br />
             My name is Guillaume
-          </Greeting>
-          <Html>{introduction}</Html>
+          </h1>
+          <Intro>
+             <Html>{introduction}</Html>
+          </Intro>
         </Content>
         <ButtonLink>
           Get to know me

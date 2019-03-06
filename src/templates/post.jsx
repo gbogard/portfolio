@@ -24,7 +24,6 @@ export default ({ data: { post }, pageContext }) => {
   const next = pageContext.next && { title: pageContext.next.frontmatter.title, link: pageContext.next.fields.slug };
   return (
     <Layout header={header}>
-      <br />
       <Html>{post.html}</Html>
       <PrevNext prev={prev} next={next} />
     </Layout>
