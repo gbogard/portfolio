@@ -6,6 +6,8 @@ module.exports = {
     'gatsby-remark-copy-linked-files',
     'gatsby-transformer-yaml',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-offline',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
