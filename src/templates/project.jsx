@@ -38,32 +38,7 @@ export default ({ data: { project, tools }, pageContext }) => {
 export const query = graphql`
   query($slug: String!) {
     project: markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        employer {
-          name
-        link
-        }
-        client {
-          name
-          link
-        }
-        startDate(formatString: "MMMM YYYY")
-        endDate(formatString: "MMMM YYYY")
-        images {
-            childImageSharp {
-              fluid(maxWidth: 1200) {
-                src
-                srcSet
-              }
-            },
-          },
-        tools
-      }
-      fields {
-        slug
-      }
-      html
+      ...ProjectData
     },
     tools: allToolsYaml {
       edges {

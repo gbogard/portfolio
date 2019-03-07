@@ -126,47 +126,14 @@ export const query = graphql`
     projects: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Project"}} },  sort: {fields: [frontmatter___startDate], order: DESC}) {
       edges {
         node {
-          id,
-          frontmatter {
-            title,
-            employer {
-              name,
-              link
-            },
-            client {
-              name,
-              link
-            },
-            startDate(formatString: "MMMM YYYY"),
-            endDate(formatString: "MMMM YYYY"),
-            images {
-              childImageSharp {
-                fluid(maxWidth: 1200) {
-                  src
-                  srcSet
-                }
-              },
-            },
-            tools
-          }
-          fields { slug }
-          html
+          ...ProjectData
         }
       }
     },
     tools: allToolsYaml {
       edges {
         node {
-          id,
-          name,
-          icon {
-            childImageSharp {
-              fluid(maxWidth: 200) {
-                src
-                srcSet
-              }
-            },
-          },
+          ...ToolData
         }
       }
     }

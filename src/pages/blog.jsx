@@ -56,17 +56,8 @@ export const query = graphql`
   ) {
     edges {
       node {
-        id,
-        html,
-        excerpt,
-        fields { slug },
-        frontmatter {
-          title
-          date(formatString: "MMMM Do, YYYY")
-          tags,
-        }
+        ...PostData
       }
     }
   }
-}
-`;
+}`;

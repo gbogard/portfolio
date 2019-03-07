@@ -33,15 +33,7 @@ export default ({ data: { post }, pageContext }) => {
 export const query = graphql`
   query($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        tags
-        date(formatString: "MMMM Do, YYYY")
-      }
-      fields {
-        slug
-      }
-      html
+      ...PostData
     },
   }
 `;
