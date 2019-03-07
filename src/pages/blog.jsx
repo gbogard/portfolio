@@ -7,6 +7,7 @@ import { ProjectsList } from '../components/ProjectsList';
 import { ToolIcon } from '../components/ToolIcon';
 import { ParallaxContentWrapper } from '../components/ParallaxContentWrapper';
 import { SmallTitle } from '../components/SmallTitle';
+import { Seo } from '../components/Seo';
 import theme from '../config/theme';
 
 export default (
@@ -42,6 +43,7 @@ export default (
   
   return (
     <Layout header={header}>
+      <Seo title="Blog" />
       {content}
     </Layout>
   )

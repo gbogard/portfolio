@@ -9,6 +9,7 @@ import { Html } from '../components/Html';
 import { ProjectsList } from '../components/ProjectsList';
 import { ToolIcon } from '../components/ToolIcon';
 import { SmallTitle } from '../components/SmallTitle';
+import { Seo } from '../components/Seo';
 
 const Content = styled.div`
   a {
@@ -105,6 +106,7 @@ export default ({
   
   return (
     <Layout header={header}>
+      <Seo title="Portfolio" />
       <SmallTitle>Tools</SmallTitle>
       {toolsList}
       <SmallTitle>Projects</SmallTitle>

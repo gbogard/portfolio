@@ -5,6 +5,7 @@ import theme from '../config/theme';
 import { useWindowScroll } from '../hooks/windowScroll';
 import { Header } from '../components/Header';
 import { ParallaxContentWrapper } from './ParallaxContentWrapper';
+import { Seo } from './Seo';
 
 const heroHeight = 300;
 
@@ -29,6 +30,7 @@ export const Layout = ({ header, children }) => {
   
   return  (
     <MainContentWrapper scrollPercentage={scrollPercentage}>
+      <Seo />
       <GlobalStyle />
       <Header ref={ref} scrollPercentage={scrollPercentage}>{header}</Header>
       <ParallaxContentWrapper scrollPercentage={scrollPercentage}>
