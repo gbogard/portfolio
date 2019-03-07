@@ -50,7 +50,14 @@ export const query = graphql`
         }
         startDate(formatString: "MMMM YYYY")
         endDate(formatString: "MMMM YYYY")
-        images
+        images {
+            childImageSharp {
+              fluid(maxWidth: 1200) {
+                src
+                srcSet
+              }
+            },
+          },
         tools
       }
       fields {
@@ -63,7 +70,14 @@ export const query = graphql`
         node {
           id,
           name,
-          icon
+          icon {
+            childImageSharp {
+              fluid(maxWidth: 200) {
+                src
+                srcSet
+              }
+            },
+          },
         }
       }
     }

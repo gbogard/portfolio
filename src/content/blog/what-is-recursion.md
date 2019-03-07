@@ -81,7 +81,7 @@ our condition is true, the `factorial` function is not called anymore.
 
 These nested calls can be represented by a tree, as illustrated by the schema below :
 
-![Each call to the factorial function gets expanded into a new call to itself](../images/factorial-tree.png)
+![Each call to the factorial function gets expanded into a new call to itself](../../assets/images/factorial-tree.png)
 
 You can see from the schema that computing `factorial(5)` requires 4 nested calls to `factorial`. The higher the
 factorial you want to compute, the taller the tree gets. For any positive integer n, computing `factorial(n)` requires `n - 1`

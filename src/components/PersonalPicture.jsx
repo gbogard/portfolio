@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import theme from '../config/theme';
 
@@ -34,9 +35,26 @@ const Img = styled.img`
   left: 0;
 `;
 
+const query = graphql`
+query {
+  file(relativePath: {eq: "assets/images/picture.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 200) {
+        src,
+        srcSet,
+      }
+    }
+  }
+}
+`;
+
 export const PersonalPicture = () => (
-  <Wrapper>
-    <Dots />
-    <Img src="/img/picture.jpg" />
-  </Wrapper>
+  <StaticQuery query={query} render={
+    ({ file: { childImageSharp: { fluid } } }) =>  (
+      <Wrapper>
+        <Dots />
+        <Img {...fluid} />
+      </Wrapper>
+    )
+  }/>
 )

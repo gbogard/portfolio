@@ -32,7 +32,7 @@ export const ProjectSummary = ({ project, tools }) => {
       { projectTools && projectTools.length ? (
         <div>
           <i className="icon-hammer"/>
-          {projectTools.map(t => <Tool src={t.icon} key={t.id} alt={t.name} />)}
+          {projectTools.map(t => <Tool {...t.icon.childImageSharp.fluid} key={t.id} alt={t.name} />)}
         </div>
       ) : null }
       { date ? (

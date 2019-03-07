@@ -27,11 +27,11 @@ export const PicturesList = ({ pictures }) => {
   return (
     <Fragment>
       <Wrapper>
-        {pictures.map(url => (
-          <Image key={url} src={url} onClick={handleClick(url)} />
+        {pictures.map(props => (
+          <Image key={props.src} {...props} onClick={handleClick(props)} />
         ))}
       </Wrapper>
-      { selectedPicture ? <Lightbox src={selectedPicture} onClose={handleClick(null)}/> : null }
+      { selectedPicture ? <Lightbox {...selectedPicture} onClose={handleClick(null)}/> : null }
     </Fragment>
   );
 };

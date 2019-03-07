@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import theme from '../config/theme';
 import { Container } from './Container';
-import { PersonalPicture } from './PersonalPicture';
 import { Navbar } from './Navbar';
 
 const Wrapper = styled.div`

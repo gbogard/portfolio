@@ -8,14 +8,15 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',
     'gatsby-plugin-offline',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src/content`,
-        path: `${__dirname}/src/content`,
+        name: `src`,
+        path: `${__dirname}/src`,
       },
     },
-    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -25,6 +26,7 @@ module.exports = {
             options: {
               maxWidth: 920,
               linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
           {

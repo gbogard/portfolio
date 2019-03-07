@@ -1,18 +1,18 @@
 - id: clojure
   name: Clojure
-  icon: /img/clojure.png
+  icon: ../assets/images/tools/clojure.png
 - id: scala
   name: Scala
-  icon: /img/scala.png
+  icon: ../assets/images/tools/scala.png
 - id: node
   name: Node.js
-  icon: /img/node.png
+  icon: ../assets/images/tools/node.png
 - id: react
   name: React
-  icon: /img/react.png
+  icon: ../assets/images/tools/react.png
 - id: vue
   name: Vue
-  icon: /img/vue.png
+  icon: ../assets/images/tools/vue.png
 - id: javascript
   name: Javascript
-  icon: /img/javascript.png
+  icon: ../assets/images/tools/javascript.png

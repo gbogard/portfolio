@@ -71,10 +71,14 @@ export default ({
     });
 
   const tools = rawTools.edges.map(t => t.node);
-  const toolsList = tools.map(({ id, icon, name }) => (
+  const toolsList = tools.map(({ id, icon: { childImageSharp: { fluid } }, name }) => (
     <ToolIcon
       onClick={onToolClick(id)}
-      active={activeTools.includes(id)} src={icon} key={id} alt={name} />
+      active={activeTools.includes(id)}
+      key={id}
+      alt={name}
+      {...fluid}
+    />
   ));
 
   const header = (
@@ -135,7 +139,14 @@ export const query = graphql`
             },
             startDate(formatString: "MMMM YYYY"),
             endDate(formatString: "MMMM YYYY"),
-            images,
+            images {
+              childImageSharp {
+                fluid(maxWidth: 1200) {
+                  src
+                  srcSet
+                }
+              },
+            },
             tools
           }
           fields { slug }
@@ -148,7 +159,14 @@ export const query = graphql`
         node {
           id,
           name,
-          icon
+          icon {
+            childImageSharp {
+              fluid(maxWidth: 200) {
+                src
+                srcSet
+              }
+            },
+          },
         }
       }
     }

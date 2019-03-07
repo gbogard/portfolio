@@ -15,18 +15,21 @@ const Grid = styled.div`
   }
 `;
 
-const renderProject = tools => (project) => (
-  <div key={project.id}>
-    <h2>{project.frontmatter.title}</h2>
-    <Grid>
-      <div>
-        <ProjectSummary project={project} tools={tools} />
-        <Html>{project.html.substr(0, 250) + '...'}</Html>
-        <Link href={project.fields.slug}>Learn more{' >'}</Link>
-      </div>
-      <PicturesList pictures={project.frontmatter.images || []}/>
-    </Grid>
-  </div>
-);
+const renderProject = tools => (project) => {
+  const images = (project.frontmatter.images || []).filter(image => image.childImageSharp).map(image => image.childImageSharp.fluid);
+  return (
+    <div key={project.id}>
+      <h2>{project.frontmatter.title}</h2>
+      <Grid>
+        <div>
+          <ProjectSummary project={project} tools={tools} />
+          <Html>{project.html.substr(0, 250) + '...'}</Html>
+          <Link href={project.fields.slug}>Learn more{' >'}</Link>
+        </div>
+        <PicturesList pictures={images} />
+      </Grid>
+    </div>
+  );
+};
 
 export const ProjectsList = ({ projects, tools }) => projects.map(renderProject(tools));
