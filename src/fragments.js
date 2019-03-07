@@ -4,7 +4,7 @@ export const PostData =  graphql`
   fragment PostData on MarkdownRemark {
      id,
      html,
-     excerpt,
+     excerpt(pruneLength: 300),
      fields { 
        slug 
      },

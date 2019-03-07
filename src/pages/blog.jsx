@@ -9,6 +9,35 @@ import { ParallaxContentWrapper } from '../components/ParallaxContentWrapper';
 import { SmallTitle } from '../components/SmallTitle';
 import { Seo } from '../components/Seo';
 import theme from '../config/theme';
+import { Tags } from '../components/Tags';
+
+const Arrow = styled.div`
+  width: 40px;
+  text-align: right;
+  @media(min-width: ${theme.breakPoints.desktop}) {
+    width: 100px;
+  }
+`;
+
+const Item = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  h2 {
+    color: black;
+  }
+
+  &:hover {
+    ${Arrow} {
+      color: ${theme.primaryBlue};
+    }
+  }
+`
+
+const Content = styled.div`
+  flex: 1;
+`;
 
 export default (
   {
@@ -32,13 +61,17 @@ export default (
             fields: { slug }
           }
   }) => (
-    <Link to={slug}>
-      <div>
+    <Item to={slug}>
+      <Content>
         <h2>{frontmatter.title}</h2>
-        <p>{excerpt}</p>
         <i className="icon-calendar"/> {frontmatter.date}
-      </div>
-    </Link>
+        <Tags tags={frontmatter.tags || []} />
+        <p>{excerpt}</p>
+      </Content>
+      <Arrow>
+        <i className="icon-chevron-right" />
+      </Arrow>
+    </Item>
   ))
   
   return (
