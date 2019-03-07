@@ -38,6 +38,7 @@ export const ProjectData = graphql`
             srcSet
           }
         },
+        publicURL,
       },
       tools
       }

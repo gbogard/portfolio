@@ -13,6 +13,21 @@ images:
   - ../../assets/images/projects/docler.jpg
 ---
 
-Rogatus ad ultimum admissusque in consistorium ambage nulla praegressa inconsiderate et leviter proficiscere inquit ut praeceptum est, Caesar sciens quod si cessaveris, et tuas et palatii tui auferri iubebo prope diem annonas. hocque solo contumaciter dicto subiratus abscessit nec in conspectum eius postea venit saepius arcessitus.
+I was asked to develop a front-end application that could manage e-mail campaigns, leads, vouchers, as well as display business insights for
+an e-mail marketing branch of the company that was selling e-books and various digital products.
 
-Auxerunt haec vulgi sordidioris audaciam, quod cum ingravesceret penuria commeatuum, famis et furoris inpulsu Eubuli cuiusdam inter suos clari domum ambitiosam ignibus subditis inflammavit rectoremque ut sibi iudicio imperiali addictum calcibus incessens et pugnis conculcans seminecem laniatu miserando discerpsit. post cuius lacrimosum interitum in unius exitio quisque imaginem periculi sui considerans documento recenti similia formidabat.
+While my job was mostly on the front-end, I had a few opportunities to help to the back-end developers. I also developed a tracking system
+for e-mails that could measure opening and clicks, give information on the click rate of a particular campaign, as well as show user interactions
+thanks to a heatmap. I was in charge of back-end and front-end development for this feature.
+
+## What I've brought
+
+* A SPA that could me used by product owners and e-mail marketers to manage every aspect of their marketing strategy, including the conception
+of e-mails using visual templates.
+* Clear performance insights thanks to charts, and heatmaps that show exactly how users interact with e-mails
+
+## What I've learned
+
+It was my first experience in the e-mail marketing business. I learned about responsive e-mail integration using MJML, as well as good
+practices regarding spam and deliverability of e-mails.
+It was also my first experience of a full Javascript stack in production.

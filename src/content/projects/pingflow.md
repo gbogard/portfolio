@@ -12,6 +12,8 @@ tools:
   - node
   - scala
   - javascript
+images:
+  - ../../assets/images/projects/pingflow.gif
 ---
 
 I've worked for a year as a lead developer for this Start-up specialized in _visual management_. My mission was to develop a tool that would help

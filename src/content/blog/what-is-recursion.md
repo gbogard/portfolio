@@ -13,6 +13,8 @@ of a data structure, while preserving the immutability of your state.
 This post is the first one of two posts about recursion. The first will cover the basic definition of recursion
 and some simple use cases, the second one will introduce performance considerations of recursive functions.
 
+[The second post about recursion is right here](/blog/recursion-performance)
+
 #### TL;DR;
 
 A function that calls itself, directly or indirectly, is called a recursive function. The factorial function, or the Fibonacci sequence are

@@ -13,4 +13,3 @@ This post is a follow-up to a previous blog post I wrote called [Understanding R
 confortable with the concept of recursion, make sure you read this one first :) 
 
 With that out of the way, let's dig in!
-
