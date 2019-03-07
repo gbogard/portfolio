@@ -12,6 +12,7 @@ const commonStyle = `
   position: relative;
   overflow: hidden;
   height: auto;
+  font-height: 1rem;
   
   &:after {
     content: ' ';
