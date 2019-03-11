@@ -36,5 +36,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        trackingUrl: 'stats.guillaumebogard.dev',
+        siteId: 'CJWXJ'
+      }
+    }
   ],
 }
