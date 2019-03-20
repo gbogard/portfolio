@@ -16,8 +16,8 @@ const Overlay = styled.div`
 `;
 
 const Image = styled.img`
-  max-width: 75vw;
-  max-height: 75vh;
+  max-width: 90vw;
+  max-height: 90vh;
   border-radius: .25rem;
 `;
 

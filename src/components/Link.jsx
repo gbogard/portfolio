@@ -37,7 +37,7 @@ const StyledGatsbyLink = styled(GatsbyLink)`${commonStyle}`;
 const StyledLink = styled.a`${commonStyle}`;
 
 export const Link = ({ href, ...props }) => {
-  if (href.startsWith('http')) {
+  if (!href || href.startsWith('http')) {
     return <StyledLink href={href} {...props} />;
   }
   return <StyledGatsbyLink to={href} {...props} />;

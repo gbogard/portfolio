@@ -94,9 +94,10 @@ export default ({
              <Html>{introduction}</Html>
           </Intro>
         </Content>
-        <ButtonLink>
+        { /*TODO : put this back when the page is done*/ }
+        {false && <ButtonLink>
           Get to know me
-        </ButtonLink>
+         </ButtonLink>}
       </div>
       <div>
         <PersonalPicture />

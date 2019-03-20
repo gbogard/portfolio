@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
-import { Html } from '../components/Html';
-import { ProjectsList } from '../components/ProjectsList';
-import { ToolIcon } from '../components/ToolIcon';
-import { ParallaxContentWrapper } from '../components/ParallaxContentWrapper';
-import { SmallTitle } from '../components/SmallTitle';
 import { Seo } from '../components/Seo';
 import theme from '../config/theme';
 import { Tags } from '../components/Tags';
@@ -86,7 +81,7 @@ export default (
 export const query = graphql`
 {
   posts: allMarkdownRemark(
-    filter: {frontmatter: {type: {eq: "Post"}}}, 
+    filter: {frontmatter: {type: {eq: "Post"}, published: {ne: false}}}, 
     sort: {fields: [frontmatter___date], order: DESC}
   ) {
     edges {
