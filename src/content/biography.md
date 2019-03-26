@@ -36,6 +36,9 @@ was my main motivation for switching to emacs in the first place. Besides, Intel
 With emacs, I also discovered a very rich ecosystem of packages, and the joy of being able to configure and program
 absolutely anything. I came for the language support, I stayed for the added productivity.
 
+I've actually put my personal emacs config on Github, including all the packages I use for day-to-day Scala, Clojure
+and Javascript development. Check it out [here](https://github.com/gbogard/emacs.d) :)
+
 #### Terminal + Shell
 
 On MacOs, I use iTerm 2. On Linux, I typically use Terminator. On my new machines, installing
