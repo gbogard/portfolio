@@ -19,6 +19,7 @@ export const PostData =  graphql`
 export const ProjectData = graphql`
   fragment ProjectData on MarkdownRemark {
     id,
+    excerpt(pruneLength: 300),
     frontmatter {
       title,
       employer {

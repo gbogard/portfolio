@@ -10,7 +10,7 @@ const Grid = styled.div`
   margin-bottom: 4rem;
   @media(min-width: ${theme.breakPoints.tablet}) {
     display: grid;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr 390px;
     grid-column-gap: 3rem;
   }
 `;

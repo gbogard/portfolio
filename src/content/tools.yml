@@ -1,6 +1,6 @@
-- id: clojure
-  name: Clojure
-  icon: ../assets/images/tools/clojure.png
+#- id: clojure
+#  name: Clojure
+#  icon: ../assets/images/tools/clojure.png
 - id: scala
   name: Scala
   icon: ../assets/images/tools/scala.png

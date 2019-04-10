@@ -4,15 +4,17 @@ import theme from '../config/theme';
 import { Lightbox } from '../components/Lightbox';
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: .75rem;
 `
 
 const Image = styled.img`
+  float: left;
   cursor: pointer;
   border-radius: .1rem;
   max-width: 160px;
-  margin: 0 .5rem .5rem 0;
+  margin: 0 .75rem .75rem 0;
   box-shadow: -4px -5px ${theme.lightBlue};
   transition: all .25s linear;
   &:hover {

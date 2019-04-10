@@ -9,6 +9,6 @@ export default {
   background: '#ecf0f1',
   breakPoints: {
     tablet: '768px',
-    desktop: '1024px'
+    desktop: '1200px'
   }
 }
