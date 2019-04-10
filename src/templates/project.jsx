@@ -38,7 +38,7 @@ export default ({ data: { project, tools }, pageContext }) => {
       <br />
       <Html>{project.html}</Html>
       {
-        project.frontmatter.images.length ? (
+        project.frontmatter.images && project.frontmatter.images.length ? (
           <Fragment>
             <h2>Images</h2>
             <PicturesList pictures={getImages(project)} />
