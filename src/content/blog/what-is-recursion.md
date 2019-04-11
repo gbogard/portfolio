@@ -185,6 +185,6 @@ Possibilities for transforming data with recursion are endless !
 I hope you liked this introduction to recursion. It can be confusing at first, but by practicing, you will soon find them very natural.
 The more you get to know recursive functions, the easier you will be able to identify and solve recursive problems. 
 
-In a second post, we'll talk about tail call elminiation, and some issues you can encounter when using recursion (and also when not to use it).
+In a second post, we'll talk about tail call elimination, and some issues you can encounter when using recursion (and also when not to use it).
 
 Thanks for reading
