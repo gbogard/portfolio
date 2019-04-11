@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           }
         }
       }
-      posts: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Post"}} }, sort: {fields: [frontmatter___date], order: DESC}) {
+      posts: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Post"}, published: {ne: false}} }, sort: {fields: [frontmatter___date], order: DESC}) {
         edges {
           node {
             frontmatter { title },

@@ -9,10 +9,10 @@ const Image = styled.img`
   border-radius: .1rem;
   object-fit: contain;
   margin: 0 .5rem .5rem 0;
-  box-shadow: -4px -5px ${theme.lightBlue};
+  box-shadow: -4px -5px ${theme.lightBlue} !important;
   transition: all .25s linear;
   &:hover {
-    box-shadow: -8px -8px ${theme.lightBlue};
+    box-shadow: -8px -8px ${theme.lightBlue} !important;
     transform: scale(1.05);
   }
 `
