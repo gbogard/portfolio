@@ -104,3 +104,9 @@ Redux stores have three core properties :
 ![](../../assets/images/redux-saga-1.png)
  
 ### Redux Saga is the missing piece
+
+## How does sagas work ?
+
+## The virtues of simplicity 
+
+https://www.infoq.com/presentations/Simple-Made-Easy
