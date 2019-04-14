@@ -286,14 +286,102 @@ You can learn more abount debouncing in the [recipes section of the documentatio
  
 ### Running effects in parallel
 
+Now that our saga is ready, we must talk about how to work with multiple sagas in an application. Redux saga requires you to
+run a single saga, much like Redux wants you to provide a single reducer. In theory, you could handle all of your application's side effects in
+a single saga. In practice though, you should strive for single responsibility sagas. Surely there must be a way to combine sagas into a single one.
 
+Enter the parallel effect. 
+
+The `all` effect takes an array of effects, and executes them in parallel. When you yield an `all` effect, the current saga is blocked until
+either all the effects resolve, or one of them fails, just like how `Promise.all` behaves.
+
+```javascript
+// Example taken from the documentation
+const [users, repos] = yield all([
+  call(fetch, '/users'),
+  call(fetch, '/repos')
+])
+```
+
+To combine our sagas into a single one, we can do something like this :
+
+```javascript
+// src/state/sagas/index.js
+export default function* () {
+  yield all([
+    airportPredictions(),
+    flights(),
+  ])
+}
+```
 
 ## Testing our sagas
 
-## The anatomy of sagas
+There is one last thing we need to talk about before concluding this article : testing. So far we have talked about how unpredictable side
+effects are compared to pure components, but that doesn't mean you shouldn't maximize your chances of getting your app working. One of the
+main benefits of Redux Saga is that sagas are easy to test. Using [Redux Saga Test Plan](https://github.com/jfairbank/redux-saga-test-plan),
+you can make assertions on the effects that your saga yields, mimic the content of your store, simulate the dispatch of actions, and even do
+snapshot testing (i.e. save the textual representation of your saga to prevent regression).
 
+Here is the test file for a saga called `loadFlights`. Can you guess what this saga does ?
 
+```javascript
+describe('loadFlights saga', () => {
+  it('Should call the two providers with appropriate arguments.', () => {
+    return expectSaga(loadFlights)
+      .withState({
+        flights: {
+          flights: [],
+          departureAirport: { code: 'CDG' },
+          arrivalAirport: { code: 'NYO' },
+          departureDate: 'DATE',
+        }
+      })
+      .fork(loadFlightsFromFirstProvider, 'CDG', 'NYO', 'DATE')
+      .fork(loadFlightsFromSecondProvider, 'CDG', 'NYO', 'DATE')
+      .run(2000)
+  });
+});
+```
 
-## The virtues of simplicity
+Tests are a great way to document your code. Tests serve as a living documentation, one that is always up-to-date by nature.
 
-https://www.infoq.com/presentations/Simple-Made-Easy
+- We start by defining the prequisites of our test. Here we use `withState` to mock the content of the store since the saga
+relies on the content of the store to work properly.
+- Then we make our assertions. Here we need to retrieve flights from two different APIs, so we check that two sagas are forked
+by the saga under test with the appropriate arguments
+- Finally we run our saga. For the sake of concision I chose not to mock anything, which means the tests will be executed against the real
+APIs, that's why we need to provide a 2 seconds timeout as argument. This ensures that the test won't fail because of the APIs response time. In a real test,
+you should mock any dependency of the saga under test, including external APIs. 
+
+There is plenty to explore in [Redux Saga Test Plan](https://github.com/jfairbank/redux-saga-test-plan), and you use jest, you can also use
+`jest.mock` and `jest.fn` to mock external dependencies, just like you would in any other test. I encourage you to always test your sagas, even if only
+for documentation purpose. It should be clear, looking at the test file, what you're trying to achieve.
+
+## The anatomy of sagas and the virtues of simplicity
+
+As this article gets to an end, I'd like to take a step back at what we've learned so far, and give you a visual representation of how
+Redux Saga fits in an application. 
+
+![The anatomy of Redux Sagas](../../assets/images/redux-saga-3.png)
+
+This image shows the three layers of a React / Redux / Redux Saga application : the view, the state and the effects, all sorted by their level of
+danger. You can see how the view layer communicates with the store, and how the store and the sagas interact :
+
+- `take` listens to actions to start the saga
+- `select` reads data from the store
+- `put` dispatches an action to the store, resulting in the update of all the subsequent layers. You can get a feel of how data flows in the
+application.
+
+I've also added two of the effects we've seen so far : `call` and `fork`, that run other sagas or asynchronous functions in a blocking or 
+non-blocking way respectively. You can represent sagas as branches, where effects can be run either in series or in parellell. You really don't need
+much more to handle your application's logic. Redux Saga is yet not another framework : it gives this rather small set of fundamental tools,
+that you can combine to achieve anything you want.
+
+As a conclusion, I'd like to share with you this talk by Rich Hickey called 
+[Simple made easy](https://www.infoq.com/presentations/Simple-Made-Easy), where he makes the distinction between simplicity and easiness, and
+encourages us to build simple systems and strive for simple constructs, even when it seems harder at first. State is one of these complex
+constructs, that make our applications less reliable and harder to reason about on a global scale. Overall, this talk is a nice introduction
+to the value of abstractions and the virtues of purity.
+
+Thank you for reading this article.
