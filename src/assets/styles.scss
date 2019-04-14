@@ -34,8 +34,8 @@ a {
 blockquote {
   position: relative;
   font-family: $quoteFont;
-  margin: 5rem 2rem;
-  padding-left: 2rem;
+  margin: 5rem 2rem 0 2rem;
+  padding: 0 2rem;
   overflow: visible;
   &:before {
     color: #ccc;

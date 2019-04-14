@@ -45,7 +45,7 @@ export const Navbar = ({ children }) => {
   const content = (
     <Content>
       <Link to="/">
-        guillaumebogard
+        <span style={{ color: theme.yellow }}>λ</span> guillaumebogard
       </Link>
       <div>
         <Link to="/blog">

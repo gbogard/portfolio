@@ -42,6 +42,18 @@ module.exports = {
         trackingUrl: 'stats.guillaumebogard.dev',
         siteId: 'CJWXJ'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Guillaume Bogard`,
+        short_name: `guillaumebogard.dev`,
+        start_url: `/`,
+        background_color: `#3C40C5`,
+        theme_color: `#3C40C5`,
+        display: `fullscreen`,
+        icon: './src/assets/images/favicon.png',
+      },
+    },
   ],
 }

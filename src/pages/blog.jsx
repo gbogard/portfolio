@@ -50,16 +50,18 @@ export default (
 
   const content = posts.map(({
     node: { id,
-            html,
             frontmatter,
             excerpt,
+            timeToRead,
             fields: { slug }
           }
   }) => (
-    <Item to={slug}>
+    <Item to={slug} key={id}>
       <Content>
         <h2>{frontmatter.title}</h2>
         <i className="icon-calendar"/> {frontmatter.date}
+        {'  |  '}
+        <i className="icon-clock" /> {Math.round(timeToRead * 1.2)} minutes read
         <Tags tags={frontmatter.tags || []} />
         <p>{excerpt}</p>
       </Content>
