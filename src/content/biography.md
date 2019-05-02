@@ -2,7 +2,8 @@
 title: Biography
 ---
 
-Hi there! Thanks for stopping by on my portfolio. I'm a full-stack developer with a focus
+Hi there! Thanks for stopping by on my portfolio. 
+My name is Guillaume Bogard, I am  a full-stack developer with a focus
 on functional programming, living in Lille, nothern France.
 
 Javascript, Scala and Clojure are my main programming languages. I enjoy playing around with
