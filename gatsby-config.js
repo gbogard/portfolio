@@ -28,7 +28,11 @@ module.exports = {
               maxWidth: 1480,
               linkImagesToOriginal: false,
               withWebp: true,
+              showCaptions: true,
             },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
           },
           {
             resolve: 'gatsby-remark-prismjs'
@@ -56,4 +60,4 @@ module.exports = {
       },
     },
   ],
-}
+};

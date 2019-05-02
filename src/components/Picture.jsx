@@ -28,3 +28,9 @@ export const Picture = props => {
     </Fragment>
   );
 };
+
+export const CenteredPicture = styled(Picture)`
+  margin: 0 auto;
+  display: block;
+  max-width: 350px;
+`;

@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
       node,
       name: 'slug',
       value: slug,
-    })
+    });
   }
 }
 
@@ -42,8 +42,8 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           path: slug,
           component: resolve('./src/templates/project.jsx'),
           context: { slug, next: next ? next.node : null, prev: prev ? prev.node : null }
-        })
-      })
+        });
+      });
 
       data.posts.edges.forEach(({ node: { fields: { slug } } }, index, arr) => {
         const prev = arr[index - 1];
@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           path: slug,
           component: resolve('./src/templates/post.jsx'),
           context: { slug, next: next ? next.node : null, prev: prev ? prev.node : null }
-        })
-      })
-    })
+        });
+      });
+    });
 }
