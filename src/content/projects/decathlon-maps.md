@@ -8,6 +8,7 @@ client:
   name: Decathlon
   link: https://www.decathlon.com
 startDate: 2019-01-10
+endDate: 2019-05-04
 images:
   - ../../assets/images/projects/decathlon-maps-1.png
   - ../../assets/images/projects/decathlon-maps-2.png
