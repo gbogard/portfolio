@@ -3,20 +3,21 @@ title: Biography
 ---
 
 Hi there! Thanks for stopping by on my portfolio. 
-My name is Guillaume Bogard, I am  a full-stack developer with a focus
-on functional programming, living in Lille, northern France.
+My name is Guillaume Bogard, I am  a full-stack developer with an appeal
+for functional programming, living in Lille, northern France.
 
-Javascript, Scala and Clojure are my main programming languages. I enjoy playing around with
+Scala and Javascript are my main programming languages. I enjoy playing around with
 various technologies, especially functional languages. I've learned a bit of Rust and Elixir
-for fun on my spare time, and I spend hours configuring my editor in Emacs Lisp.
+for fun on my spare time, and I've spent hours fiddling with my Emacs Lisp configuration.
 
-I have a passion for scalability, concurrent programming, and building abstractions.
+I have a passion for scalability, concurrent programming, and abstractions.
 My other activities include writing, mostly about software on my [blog](/blog), and
 speaking in meetups and conferences, mostly to exchange on functional programming.
-I've had the opportunity to host a talk at the Scala.io conference in 2018.
+I've had the opportunity to host a talk at the Scala.io conference in 2018, and I am a regular Speaker
+at Linkvalue's events.
 
 My hobbies include going to the movies, riding roller-coasters and learning foreign languages.
-My native language is French,  I am fluent in English, and I am currently improving my German.
+My native language is French, I am fluent in English, and currently looking to improve my German.
 
 ## The tech tools I use
 
@@ -40,13 +41,13 @@ and Javascript development. Check it out [here](https://github.com/gbogard/emacs
 
 #### Terminal + Shell
 
-On MacOs, I use iTerm 2. On Linux, I typically use Terminator. On my new machines, installing
+On MacOs, I use iTerm 2. On Linux, I typically use Terminator. Either way, installing
 [Oh my ZSH](https://ohmyz.sh/) is one of the first things I do.
 
 #### Desktop apps 
 
 * For music, I use Spotify and it's open on my desktop pretty much all-day long.
-* For testing APIs, I use [Insomnia](https://insomnia.rest/)
+* To test APIs, I use [Insomnia](https://insomnia.rest/)
 
 #### Operating system
 
