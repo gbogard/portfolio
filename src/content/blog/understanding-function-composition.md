@@ -1,0 +1,74 @@
+---
+type: Post
+title: Function composition techniques for every developer
+date: 2018-05-15
+published: true
+tags:
+  - Functional Programming
+  - Javascript
+---
+Today I'd like to introduce some of the most fundamental techniques we use
+every day in functional programming to build programs out of smaller units. Wether you're getting
+started in the Lamda world, or a well installed developer looking for techniques to refactor a huge piece
+of code, I hope you'll find these helpful. All you need is a programming languages that supports
+functions as first-class citizens, sometimes referred to as lamda expressions (Javascript, C#, Go, Scala, PHP ...).
+
+## What are functions exactly ?
+
+If you're a developer, you're very likely already familiar with the term *function*, so much so, that it
+might be difficult to give it a concise definition. I like to think as functions as very simple things : *arrows*
+that map one particular value of a set to a particular value of possibly different set. 
+Let's say you have two sets, `Day` and `ChuckNorrisQuote` and function that goes `f: Day -> ChuckNorrisQuote`,
+then when you apply `f` to a particular day `April 1st`, you get a particular Chuck Norris quote, that is said to
+be the image of `April 1st` by `f`. 
+
+Now, you may already know that functional programmers, programmers that use functions are the primary building
+block of all programs, like to put some adjectives on their functions : they say functions should be *pure*, 
+*total*, *referentially transparent* ...I'm not going into too much details about what this means, that's a topic
+for another day, but I'd like to emphasize something else instead : often, in programming, we use the term *function*
+where what we really mean instead is *subroutine* or *procedure*, i.e something that we use to group lines
+of codes together so we can re-use them later. These procedures often don't have return values, they're only
+used of their side effects, and sometimes they don't even have arguments. Procedures have their use cases, but they're
+not quite the same concept as functions. For the sake of this article, we'll only consider the simplest definition
+of a function, an arrow from a set to another, and see what we can get from this simple yet so powerful concept.
+
+## Functions are values
+
+
+## Functions compose
+
+A key property of functions is that smaller functions can be composed to create new functions. That's how we build larger
+scale programs in functional programming. Composition is a simple and essential concept : it is the idea that if you
+have a function from `User` to `Day` (let's say it's their birthday), and a function from `Day` to `ChuckNOrrisQuote`, then
+composition gives you a function from `User` to `ChuckNorrisQuote`.
+
+To express it more generically, we say that composing functions is applying a function to the result of another function.
+In mathematics the symbol `º` is used to express this composition. 
+
+```
+f(x) = 2x + 3
+g(x) = 4x
+
+c(x) = (gºf)(x) = g(f(x))`
+
+c(12) = g(f(12))
+      = g(27)
+      = 108
+```
+
+## Functions can be partially applied
+
+
+## Where do I go next ?
+
+I hope you liked this introduction on functional composition. If you're JavaScript developer, I recommend that
+you try out Ramda, a utility library that emphasizes on function composition. [I made a blog post on it too](/blog/discover-ramda).
+They are also functional programming libraries in many langauges such as [Arrow](https://arrow-kt.io) for Kotlin or [Functional PHP](https://github.com/lstrojny/functional-php).
+
+If you want to dive deeper in the functional programming world, I'd suggest you pick and try to learn a functional language such as
+ReasonML or Scala. Be careful though, some languages are more opinionated than others : Scala for example is very permissive due to its
+interoperability with Java. If it's your first time learning a functional language, I'd recommend you to go with something more opinionated,
+with well established functional patterns. If you chose Scala, I really recommend you learn Cats, a functional programming library, and keep
+away from the LIghtbend ecosystem, at least at the beginning. [Scala Exercises](https://www.scala-exercises.org) is a good way to start.
+
+In the meantime, keep calm and curry-on !

@@ -67,9 +67,14 @@ functional programming too ! Transforming data using simple, dedicated and compo
 So why is it that functional programmers have felt the need for another library ?
 
 Well, Lodash functions work well, but they turn out not be so easy to compose, and functional programming relies
-a lot on composition. Composition makes the code easier to write, read, and test.
+a lot on composition, as it makes the code easier to write, read, and test.
 
 ## Ramda is different
+
+Ramda could be described as Lodash, with all the data manipulation utilities you would expect (e.g `map`,
+`filter`, `groupBy`, `pick` etc.) except all its functions are pure, curried by default, and their arguments
+are arranged in a way that makes partial application easier.
+
 
 ## Let the data flow
 
