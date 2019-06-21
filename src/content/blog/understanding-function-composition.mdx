@@ -16,11 +16,18 @@ functions as first-class citizens, sometimes referred to as lamda expressions (J
 ## What are functions exactly ?
 
 If you're a developer, you're very likely already familiar with the term *function*, so much so, that it
-might be difficult to give it a concise definition. I like to think as functions as very simple things : *arrows*
+might be difficult to give it a concise definition. I like to think of functions as very simple things : *arrows*
 that map one particular value of a set to a particular value of possibly different set. 
 Let's say you have two sets, `Day` and `ChuckNorrisQuote` and function that goes `f: Day -> ChuckNorrisQuote`,
 then when you apply `f` to a particular day `April 1st`, you get a particular Chuck Norris quote, that is said to
-be the image of `April 1st` by `f`. 
+be the image of `April 1st` by `f`.
+
+In programming, functions sometimes accept more than one value as arguments. The number of arguments a function takes
+is known as its *arity*. When a function requires both an instance of `Date` and a `Movie`, we say is has an arity of two.
+A function that expects exactly one argument is said to be *unary*. In some languages, arity is a core part of the function's,
+definition, like in Elixir, where the fully qualified name for function is `name/arity`. In others, like Javascript, you can
+pass any number of arguments to any function, the validity of the argument set has to be checked at runtime. We'll reuse 
+the term *arity* later on.
 
 Now, you may already know that functional programmers, programmers that use functions are the primary building
 block of all programs, like to put some adjectives on their functions : they say functions should be *pure*, 
@@ -63,7 +70,8 @@ c(12) = g(f(12))
 
 I hope you liked this introduction on functional composition. If you're JavaScript developer, I recommend that
 you try out Ramda, a utility library that emphasizes on function composition. [I made a blog post on it too](/blog/discover-ramda).
-They are also functional programming libraries in many langauges such as [Arrow](https://arrow-kt.io) for Kotlin or [Functional PHP](https://github.com/lstrojny/functional-php).
+They are also functional programming libraries in many langauges such as [Arrow](https://arrow-kt.io) 
+for Kotlin or [Functional PHP](https://github.com/lstrojny/functional-php).
 
 If you want to dive deeper in the functional programming world, I'd suggest you pick and try to learn a functional language such as
 ReasonML or Scala. Be careful though, some languages are more opinionated than others : Scala for example is very permissive due to its

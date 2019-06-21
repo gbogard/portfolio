@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    'gatsby-mdx',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
