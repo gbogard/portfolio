@@ -3,7 +3,7 @@ import theme from '../config/theme';
 
 
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 1rem;

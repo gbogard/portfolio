@@ -1,11 +1,8 @@
 module.exports = {
   plugins: [
-    'gatsby-mdx',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
-    'gatsby-transformer-remark',
-    'gatsby-remark-copy-linked-files',
     'gatsby-transformer-yaml',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',
@@ -20,7 +17,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
         plugins: [
           {
@@ -35,9 +32,6 @@ module.exports = {
           {
             resolve: 'gatsby-remark-copy-linked-files',
           },
-          {
-            resolve: 'gatsby-remark-prismjs'
-          }
         ],
       },
     },

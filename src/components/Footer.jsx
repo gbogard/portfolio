@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../config/theme';
-import { Container } from './Container';
 
 const Content = styled.div`
   background: ${theme.footerBackground};
@@ -61,7 +60,7 @@ export const Footer = () => (
         This website uses <a href="https://usefathom.com/">Fathom Analytics</a>, an open-source statistics plarform that respects your privacy.
       </p>
       <p>
-        Made with ❤ and <a href="https://www.gatsbyjs.org"><img src="https://www.gatsbyjs.org/favicon.ico"/></a>. Hosted
+        Made with ❤ and <a href="https://www.gatsbyjs.org"><img alt="Gatsby" src="https://www.gatsbyjs.org/favicon.ico"/></a>. Hosted
         on <a href="https://www.netlify.com/">Netlify</a>.
       </p>
     </License>

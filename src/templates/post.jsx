@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { MDXRenderer } from 'gatsby-mdx';
 import { Layout } from '../components/Layout';
-import { Html } from '../components/Html';
 import { PrevNext } from '../components/PrevNext';
 import { Seo } from '../components/Seo';
 
@@ -29,7 +29,7 @@ export default ({ data: { post }, pageContext }) => {
         title={post.frontmatter.title}
         description={post.excerpt}
       />
-      <Html>{post.html}</Html>
+      <MDXRenderer scope={post.code.scope}>{post.code.body}</MDXRenderer>
       <PrevNext prev={prev} next={next} />
     </Layout>
   );
@@ -37,7 +37,7 @@ export default ({ data: { post }, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: mdx(fields: { slug: { eq: $slug } }) {
       ...PostData
     },
   }

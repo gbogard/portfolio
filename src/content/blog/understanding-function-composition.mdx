@@ -1,7 +1,7 @@
 ---
 type: Post
 title: Function composition techniques for every developer
-date: 2018-05-15
+date: 2019-05-15
 published: true
 tags:
   - Functional Programming
@@ -29,15 +29,15 @@ definition, like in Elixir, where the fully qualified name for function is `name
 pass any number of arguments to any function, the validity of the argument set has to be checked at runtime. We'll reuse 
 the term *arity* later on.
 
-Now, you may already know that functional programmers, programmers that use functions are the primary building
+Now, you may already know that functional programmers, programmers that use functions as the primary building
 block of all programs, like to put some adjectives on their functions : they say functions should be *pure*, 
 *total*, *referentially transparent* ...I'm not going into too much details about what this means, that's a topic
 for another day, but I'd like to emphasize something else instead : often, in programming, we use the term *function*
 where what we really mean instead is *subroutine* or *procedure*, i.e something that we use to group lines
 of codes together so we can re-use them later. These procedures often don't have return values, they're only
-used of their side effects, and sometimes they don't even have arguments. Procedures have their use cases, but they're
+used for their side effects, and sometimes they don't even have arguments. Procedures have their use cases, but they're
 not quite the same concept as functions. For the sake of this article, we'll only consider the simplest definition
-of a function, an arrow from a set to another, and see what we can get from this simple yet so powerful concept.
+of a function, an arrow from a set to another, and see what we can get from this simple yet powerful concept.
 
 ## Functions are values
 
@@ -46,7 +46,7 @@ of a function, an arrow from a set to another, and see what we can get from this
 
 A key property of functions is that smaller functions can be composed to create new functions. That's how we build larger
 scale programs in functional programming. Composition is a simple and essential concept : it is the idea that if you
-have a function from `User` to `Day` (let's say it's their birthday), and a function from `Day` to `ChuckNOrrisQuote`, then
+have a function from `User` to `Day` (let's say it's their birthday), and a function from `Day` to `ChuckNorrisQuote`, then
 composition gives you a function from `User` to `ChuckNorrisQuote`.
 
 To express it more generically, we say that composing functions is applying a function to the result of another function.
@@ -56,7 +56,7 @@ In mathematics the symbol `º` is used to express this composition.
 f(x) = 2x + 3
 g(x) = 4x
 
-c(x) = (gºf)(x) = g(f(x))`
+c(x) = (gºf)(x) = g(f(x))
 
 c(12) = g(f(12))
       = g(27)

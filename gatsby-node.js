@@ -2,7 +2,7 @@ const { resolve } = require(`path`);
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode, basePath: 'content' });
     createNodeField({
       node,
@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 exports.createPages = ({ graphql, actions: { createPage } }) => {
   const query = `
     query {
-      projects: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Project"}} }, sort: {fields: [frontmatter___startDate], order: DESC}) {
+      projects: allMdx(filter: { frontmatter: {type: {eq: "Project"}} }, sort: {fields: [frontmatter___startDate], order: DESC}) {
         edges {
           node {
             frontmatter { title },
@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           }
         }
       }
-      posts: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Post"}, published: {ne: false}} }, sort: {fields: [frontmatter___date], order: DESC}) {
+      posts: allMdx(filter: { frontmatter: {type: {eq: "Post"}, published: {ne: false}} }, sort: {fields: [frontmatter___date], order: DESC}) {
         edges {
           node {
             frontmatter { title },

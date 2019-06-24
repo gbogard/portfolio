@@ -82,7 +82,7 @@ export default (
 
 export const query = graphql`
 {
-  posts: allMarkdownRemark(
+  posts: allMdx(
     filter: {frontmatter: {type: {eq: "Post"}, published: {ne: false}}}, 
     sort: {fields: [frontmatter___date], order: DESC}
   ) {
