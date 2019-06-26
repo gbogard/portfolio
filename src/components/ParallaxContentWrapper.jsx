@@ -16,6 +16,7 @@ const ContentWrapper = styled(Container)`
   top: -4rem;
   box-shadow: 0 -3px 8px rgba(0,0,0,${props => shadowOpacity(props.scrollPercentage)});
   transform: translateY(-${props => top(props.scrollPercentage)}px);
+  margin-bottom: 2rem;
 
   @media(min-width: ${theme.breakPoints.desktop}) {
     padding-top: 2rem 0 0 0;

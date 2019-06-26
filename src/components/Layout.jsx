@@ -3,13 +3,13 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
 import { lighten } from 'polished';
 import theme from '../config/theme';
-import { useWindowScroll } from '../hooks/windowScroll';
 import { Header } from '../components/Header';
 import { Link } from '../components/Link';
 import { ParallaxContentWrapper } from './ParallaxContentWrapper';
 import { Seo } from './Seo';
 import { Footer } from './Footer';
 import { Code } from './Code';
+import { useScrollPercentage } from '../hooks/scrollPercentage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,27 +23,19 @@ const MainContentWrapper = styled.div`
 
 export const Layout = ({ header, children }) => {
   const ref = useRef({ scrollHeight: 1000 });
-  const { y } = useWindowScroll();
-  const { current: { scrollHeight } } = ref;
-  const topOffset = 60;
-  const bottomOffset = 200;
-  const scrollPercentage = (y - topOffset) * 100 / (scrollHeight - bottomOffset);
-
+  const scrollPercentage = useScrollPercentage(ref);
+  const mdxComponents = {
+    a: Link,
+    code: Code,
+  }
 
   return (
-    <MDXProvider
-      components={{
-        a: Link,
-        code: Code,
-      }} 
-    >
+    <MDXProvider components={mdxComponents}>
       <MainContentWrapper scrollPercentage={scrollPercentage}>
         <Seo />
         <GlobalStyle />
         <Header ref={ref} scrollPercentage={scrollPercentage}>{header}</Header>
-        <ParallaxContentWrapper scrollPercentage={scrollPercentage}>
-          {children}
-        </ParallaxContentWrapper>
+        {children(scrollPercentage)} 
         <Footer />
       </MainContentWrapper>
     </MDXProvider>
