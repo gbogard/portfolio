@@ -163,8 +163,8 @@ re-implementing the `join` method.
 
 A key property of functions is that smaller functions can be composed to create new functions. That's how we build larger
 scale programs in functional programming. Composition is a simple and essential concept : it is the idea that if you
-have a function from `User` to `Day` (let's say it's their birthday), and a function from `Day` to `ChuckNorrisQuote`, then
-composition gives you a function from `User` to `ChuckNorrisQuote`.
+have a function from `User` to `Day` (let's say it's their birthday), and a function from `Day` to `ChuckNorrisFact`, then
+composition gives you a function from `User` to `ChuckNorrisFact`.
 
 To express it more generically, we say that composing functions is applying a function to the result of another function.
 In mathematics the symbol `º` is used to express this composition. 
@@ -180,7 +180,68 @@ c(12) = g(f(12))
       = 108
 ```
 
+Such composiitons are useful becasue they allow you to break your code into smaller, highly-specialized functions and test them in isolation.
+Smaller functions are usually easier to read and maintain as we will soon see.
+
+### Implementing function composition in Javascript
+
+Let's reuse the same example (for the purpose of this demonstration, the functions will be very simple) :
+
+```javascript
+const getBirthday = user => user.birthday
+const getChuchNorrisFactOfTheDay = date => "Chuck Norris has counted to infinity. Twice." 
+```
+
+You could write a higher-order function to compose those two functions.
+
+```javascript
+const getChuckNorrisFactForUser = user => getChuchNorrisFactOfTheDay(getBirthday(user))
+```
+
+But this isn't ideal. You've created a very specific function, that you will need to rewrite every time you want to perform
+another composition. Furthermore, the body of this function isn't looking gret. Imagine if we had to compose three or even four functions
+together, we'd end up with four levels of nested parentheses, a nightmare!
+
+What you could do instead is write a `compose` function that can compose any number of functions together. Remember our friend `reduce` ?
+Well here it is again :
+
+```javascript
+const compose = (...functions) => args => functions.reduceRight((arg, fn) => fn(arg), args)
+```
+
+Here we are using `reduceRight`, a close cousin of `reduce` that operates from right to left, this allows us
+to keep the mathematical composition order. Notice also the `...` in the argument list. This is used to create a *variadic function*.
+A variadic function is a function that can take any number of arguments. In other terms, it is a function of variable arity. The caller of
+the function will pass as many arguments as they need to be processes, and from the body of the function, those arguments will be received
+in the form of an array.
+
+The double fat arrow is the sign of a higher-order function : the result of calling `compose` with several functions will itself be a function!
+
+```javascript
+const getChuckNorrisFactForUser = compose(
+  getChuchNorrisFactOfTheDay,
+  getBirthday
+)
+```
+ Much cleaner, right ? Now we have a way of composing any list of functions. But the right-to-left composition can be confusing for many people. What
+ if you want left-to-right composition instead ? Just use `reduce` instead of `reduceRight`. Left-to-right composition is often referred to as *piping*.
+
+```javascript
+const pipe = (...functions) => args => functions.reduce((arg, fn) => fn(arg), args)
+```
+
+Then you can write
+
+```javascript
+const getChuckNorrisFactForUser = compose(
+  getBirthday,
+  getChuchNorrisFactOfTheDay
+)
+```
+
 ## Functions can be partially applied
+
+## Currying is a special form of partial application
 
 
 ## Where do I go next ?
@@ -191,9 +252,6 @@ They are also functional programming libraries in many langauges such as [Arrow]
 for Kotlin or [Functional PHP](https://github.com/lstrojny/functional-php).
 
 If you want to dive deeper in the functional programming world, I'd suggest you pick and try to learn a functional language such as
-ReasonML or Scala. Be careful though, some languages are more opinionated than others : Scala for example is very permissive due to its
-interoperability with Java. If it's your first time learning a functional language, I'd recommend you to go with something more opinionated,
-with well established functional patterns. If you chose Scala, I really recommend you learn Cats, a functional programming library, and keep
-away from the LIghtbend ecosystem, at least at the beginning. [Scala Exercises](https://www.scala-exercises.org) is a good way to start.
+ReasonML or Scala.
 
 In the meantime, keep calm and curry-on !
