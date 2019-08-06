@@ -1,11 +1,11 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { MDXRenderer } from 'gatsby-mdx';
 import theme from '../config/theme';
 import { graphql } from 'gatsby';
 import { ButtonLink } from '../components/Button';
 import { PersonalPicture } from '../components/PersonalPicture';
 import { Layout } from '../components/Layout';
-import { Html } from '../components/Html';
 import { ProjectsList } from '../components/ProjectsList';
 import { ToolIcon } from '../components/ToolIcon';
 import { SmallTitle } from '../components/SmallTitle';
@@ -43,7 +43,7 @@ export default ({
       edges: [
         {
           node: {
-            html: introduction
+            code: introduction
           }
         }
       ]
@@ -91,7 +91,7 @@ export default ({
             My name is Guillaume
           </h1>
           <Intro>
-             <Html>{introduction}</Html>
+             <MDXRenderer scope={introduction.scope}>{introduction.body}</MDXRenderer>
           </Intro>
         </Content>
         <ButtonLink to="/about">
@@ -117,15 +117,18 @@ export default ({
 
 export const query = graphql`
   query {
-    intro: allMarkdownRemark(filter: { frontmatter: { title: {eq: "Introduction"} } }) {
+    intro: allMdx(filter: { frontmatter: { title: {eq: "Introduction"} } }) {
       edges {
         node {
           id
-          html,
+          code {
+            body,
+            scope
+          },
         }
       }
     },
-    projects: allMarkdownRemark(filter: { frontmatter: {type: {eq: "Project"}} },  sort: {fields: [frontmatter___startDate], order: DESC}) {
+    projects: allMdx(filter: { frontmatter: {type: {eq: "Project"}} },  sort: {fields: [frontmatter___startDate], order: DESC}) {
       edges {
         node {
           ...ProjectData

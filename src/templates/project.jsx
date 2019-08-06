@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-mdx';
 import styled from 'styled-components';
 import { Layout } from '../components/Layout';
-import { Html } from '../components/Html';
 import { ProjectSummary } from '../components/ProjectSummary';
 import { SmallTitle } from '../components/SmallTitle';
 import { PrevNext } from '../components/PrevNext';
@@ -36,7 +36,7 @@ export default ({ data: { project, tools }, pageContext }) => {
       <SmallTitle>Project Summary</SmallTitle>
       <ProjectSummary project={project} tools={tools.edges.map(t => t.node)} />
       <br />
-      <Html>{project.html}</Html>
+      <MDXRenderer scope={project.code.scope}>{project.code.body}</MDXRenderer>
       {
         project.frontmatter.images && project.frontmatter.images.length ? (
           <Fragment>
@@ -52,7 +52,7 @@ export default ({ data: { project, tools }, pageContext }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    project: markdownRemark(fields: { slug: { eq: $slug } }) {
+    project: mdx(fields: { slug: { eq: $slug } }) {
       ...ProjectData
     },
     tools: allToolsYaml {

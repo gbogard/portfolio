@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import theme from '../config/theme';
 import { ProjectSummary } from './ProjectSummary'; 
 import { Link } from './Link';
-import { Html } from './Html';
 import { PicturesList } from './PicturesList';
 
 const Grid = styled.div`
@@ -31,7 +30,7 @@ const renderProject = tools => (project) => {
       <Grid>
         <div>
           <ProjectSummary project={project} tools={tools} />
-          <Html>{project.html.substr(0, 250) + '...'}</Html>
+          {project.excerpt}
           <Link href={project.fields.slug}>Learn more{' >'}</Link>
         </div>
         <PicturesList pictures={getImages(project)} />

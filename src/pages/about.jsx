@@ -1,16 +1,19 @@
 import React from 'react';
-import { graphal } from 'gatsby';
+import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-mdx';
 import { Layout } from '../components/Layout';
-import { Html } from '../components/Html';
 
 export const query = graphql`
   query {
-     allMarkdownRemark(filter: { frontmatter: { title: { eq: "Biography" } }}) {
+     allMdx(filter: { frontmatter: { title: { eq: "Biography" } }}) {
       totalCount
       edges {
         node {
           id
-          html,
+          code {
+            body,
+            scope
+          },
         }
       }
     }
@@ -19,10 +22,10 @@ export const query = graphql`
 
 export default ({
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       edges: [
         {
-          node: { html }
+          node: { code }
         }
       ]
     }
@@ -33,7 +36,7 @@ export default ({
   )
   return (
     <Layout header={header}>
-      <Html>{html}</Html>
+      <MDXRenderer scope={code.scope}>{code.body}</MDXRenderer>
     </Layout>
   )
 }

@@ -1,9 +1,12 @@
 import { graphql } from 'gatsby';
 
 export const PostData =  graphql`
-  fragment PostData on MarkdownRemark {
+  fragment PostData on Mdx {
      id,
-     html,
+     code {
+       body,
+       scope
+     },
      timeToRead,
      excerpt(pruneLength: 300),
      fields { 
@@ -18,8 +21,12 @@ export const PostData =  graphql`
 `
 
 export const ProjectData = graphql`
-  fragment ProjectData on MarkdownRemark {
+  fragment ProjectData on Mdx {
     id,
+    code {
+      body,
+      scope
+    },
     excerpt(pruneLength: 300),
     frontmatter {
       title,
@@ -45,7 +52,6 @@ export const ProjectData = graphql`
       tools
       }
       fields { slug }
-      html
   }
 `;
 
